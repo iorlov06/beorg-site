@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partner_id: 
+  parcel_id: 
+  departure_point_id: 
+  destination_point_id: 
+  note: MyText
+  email: MyString
+  capture_time: 2015-11-24 11:38:10
+
+two:
+  partner_id: 
+  parcel_id: 
+  departure_point_id: 
+  destination_point_id: 
+  note: MyText
+  email: MyString
+  capture_time: 2015-11-24 11:38:10
