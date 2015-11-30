@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   pool: 5
   timeout: 5000
 
@@ -14,9 +14,9 @@ development:
   encoding: utf8
   database: beorgdb
   host: localhost
-  port: 3306
-  username: root
-  password: root
+  port: 5432
+  username: beorg_admin
+  password: beorg_password
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

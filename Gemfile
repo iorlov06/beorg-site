@@ -30,7 +30,7 @@ gem 'cancan'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-gem 'mysql2', '~> 0.3.20'
+gem 'pg'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
