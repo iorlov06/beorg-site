@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20151130195244) do
     t.datetime "updated_at",    null: false
     t.integer  "parcel_type"
     t.integer  "delivery_type"
-    t.integer  "fragile"
+    t.boolean  "fragile"
   end
 
   add_index "parcels", ["locality_id"], name: "index_parcels_on_locality_id", using: :btree
