@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130195244) do
+ActiveRecord::Schema.define(version: 20151206152027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,13 +77,22 @@ ActiveRecord::Schema.define(version: 20151130195244) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string   "descripton"
+    t.integer  "mark"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "phone"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "partonym"
     t.boolean  "authorized"
-    t.boolean  "admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -96,6 +105,7 @@ ActiveRecord::Schema.define(version: 20151130195244) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "role",                                null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -105,4 +115,5 @@ ActiveRecord::Schema.define(version: 20151130195244) do
   add_foreign_key "orders", "parcels"
   add_foreign_key "orders", "partners"
   add_foreign_key "parcels", "localities"
+  add_foreign_key "reviews", "users"
 end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripton: MyString
+  mark: 1
+  user_id: 
+
+two:
+  descripton: MyString
+  mark: 1
+  user_id: 
