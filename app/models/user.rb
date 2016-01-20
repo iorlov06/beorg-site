@@ -3,5 +3,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :user
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable
+  before_save :check_role
+
+  def check_role
+    if !self.role
+      self.role = 0
+    end
+  end
 end

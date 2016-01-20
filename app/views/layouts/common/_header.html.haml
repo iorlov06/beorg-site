@@ -1,0 +1,5 @@
+-if current_user
+  You logged as #{current_user.username}
+-else
+  =render 'devise/sessions/new'
+  =link_to 'register', '/users/sign_up'
