@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post 'users/update_info', to: 'users#update'
   root 'info#index'
   get 'cabinet', to: 'users#cabinet'
+  post 'parcel/fast_search', to: 'parcels#fast_search'
+  post 'parcel/search', to: 'parcels#search'  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

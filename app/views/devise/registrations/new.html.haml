@@ -8,7 +8,11 @@
   .field
     = f.label :username
     %br/
-    = f.text_field :username  
+    = f.text_field :username
+  .field
+    = f.label :phone
+    %br/
+    = f.text_field :phone
   .field
     = f.label :password
     - if @minimum_password_length
