@@ -1,0 +1,52 @@
+-# Личный кабинет
+%h2
+  Your personal information
+%p
+  Username: #{current_user.username || ''}
+%p
+  Phone: #{current_user.phone || ''}
+%p
+  Email: #{current_user.email || ''}
+%p
+  Firstname: #{current_user.firstname || ''}
+%p
+  Partonym: #{current_user.partonym || ''}
+%p
+  Lastname: #{current_user.lastname || ''}
+%h2
+  Your orders:
+%table
+  %thead
+    %tr
+      %th
+        Order code
+      %th
+        Departure town
+      %th
+        Destination town
+      %th
+        -# TODO: выяснить, что есть статус
+        Status
+      %th
+        -# TODO: выяснить, что точно есть время прибытия
+        Arrival time
+  %tbody
+    -@orders.each do |order|
+      %tr
+        %td
+          =order.id
+        %td
+          =order.departure_point
+        %td
+          =order.destination_point
+        %td
+          -# =order.status
+        %td
+          =order.capture_time
+%strong
+  %p
+    =link_to 'Edit', 'users/edit_info'
+  %p
+    =link_to 'Edit credentials', 'users/edit'
+  %p
+    =link_to 'logout', destroy_user_session_path, method: :delete

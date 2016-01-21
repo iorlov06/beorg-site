@@ -1,0 +1,10 @@
+-# Список отзывов о сервисе
+%h2
+  Reviews
+-@reviews.each do |review|
+  %h3
+    =review.user.username
+  %p
+    =review.mark
+  %p
+    =review.descripton

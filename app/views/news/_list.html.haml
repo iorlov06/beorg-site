@@ -1,0 +1,6 @@
+-# Список свежих новостей
+%h2
+  Recent news
+-@news.each do |article|
+  %p
+    =link_to "/news/#{article.id}", article.title

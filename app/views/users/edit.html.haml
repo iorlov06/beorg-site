@@ -1,0 +1,22 @@
+%h2
+  Edit your personal information
+  =form_tag '/users/update_info'
+  %p
+    =label_tag :username
+    =text_field_tag :username, current_user.username || ''
+  %p
+    =label_tag :phone
+    =text_field_tag :phone, current_user.phone || ''
+  %p
+    =label_tag :email
+    =text_field_tag :email, current_user.email || ''
+  %p
+    =label_tag :firstname
+    =text_field_tag :firstname, current_user.firstname || ''
+  %p
+    =label_tag :partonym
+    =text_field_tag :partonym, current_user.partonym || ''
+  %p
+    =label_tag :lastname
+    =text_field_tag :lastname, current_user.lastname || ''
+  =submit_tag 'Save'

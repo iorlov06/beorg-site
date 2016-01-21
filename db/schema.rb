@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119125032) do
+ActiveRecord::Schema.define(version: 20160121150823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,35 +45,34 @@ ActiveRecord::Schema.define(version: 20160119125032) do
   create_table "orders", force: :cascade do |t|
     t.integer  "partner_id"
     t.integer  "parcel_id"
-    t.integer  "endpoint_id"
     t.text     "note"
     t.string   "email"
     t.time     "capture_time"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "user_id"
+    t.integer  "departure_point_id"
+    t.integer  "destination_point_id"
   end
 
-  add_index "orders", ["endpoint_id"], name: "index_orders_on_endpoint_id", using: :btree
   add_index "orders", ["parcel_id"], name: "index_orders_on_parcel_id", using: :btree
   add_index "orders", ["partner_id"], name: "index_orders_on_partner_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "parcels", force: :cascade do |t|
-    t.integer  "locality_id"
     t.float    "height"
     t.float    "width"
     t.float    "length"
     t.float    "weight"
     t.float    "price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "parcel_type"
     t.integer  "delivery_type"
     t.boolean  "fragile"
+    t.integer  "departure_id"
+    t.integer  "destination_id"
   end
-
-  add_index "parcels", ["locality_id"], name: "index_parcels_on_locality_id", using: :btree
 
   create_table "partners", force: :cascade do |t|
     t.string   "name"
@@ -124,9 +123,7 @@ ActiveRecord::Schema.define(version: 20160119125032) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "orders", "endpoints"
   add_foreign_key "orders", "parcels"
   add_foreign_key "orders", "partners"
-  add_foreign_key "parcels", "localities"
   add_foreign_key "reviews", "users"
 end

@@ -1,0 +1,22 @@
+-# форма для отзыва о сервисе
+-if current_user
+  -if current_user.review
+    %h3
+      Your review
+    %p
+      =current_user.review.mark
+    %p
+      =current_user.review.descripton
+    =link_to 'Delete review', "/users/#{current_user.id}/delete_review"
+  -else
+    %h2
+      Leave a Review
+    = form_tag 'reviews/add' do
+      %p
+        = label_tag :mark
+        = text_field_tag :mark
+      %p
+        = label_tag :descripton
+        = text_area_tag :descripton
+      %p
+        =submit_tag 'Send'
