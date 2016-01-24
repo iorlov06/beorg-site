@@ -1,1 +1,87 @@
 -# Полная форма оформления заказа
+=form_tag '/orders/create' do
+  %p
+    =label_tag :departure
+    =text_field_tag :departure, @parcel_params[:departure] || '', disabled: true
+  %p
+    =label_tag :destination
+    =text_field_tag :destination, @parcel_params[:destination] || '', disabled: true
+  %p
+    =label_tag :weight
+    =text_field_tag :weight, @parcel_params[:weight] || '', disabled: true
+  %p
+    =label_tag :height
+    =text_field_tag :height, @parcel_params[:height] || '', disabled: true
+  %p
+    =label_tag :length
+    =text_field_tag :length, @parcel_params[:length] || '', disabled: true
+  %p
+    =label_tag :width
+    =text_field_tag :width, @parcel_params[:width] || '', disabled: true
+  %p
+    =label_tag :insurance_price
+    =text_field_tag :insurance_price, @parcel_params[:insurance_price] || '', disabled: true
+  %p
+    =label_tag :partner_name
+    =text_field_tag :partner_name, @parcel_params[:partner_name] || '', disabled: true
+  %p
+    =label_tag :cost
+    =text_field_tag :cost, @parcel_params[:cost] || '', disabled: true        
+  %h3
+    Departure Info:
+  %p
+    =label_tag :departure_index
+    =text_field_tag :departure_index
+  %p
+    =label_tag :departure_street_name
+    =text_field_tag :departure_street_name
+  %p
+    =label_tag :departure_house_number
+    =text_field_tag :departure_house_number
+  %p
+    =label_tag :departure_corpus
+    =text_field_tag :departure_corpus
+  %p
+    =label_tag :departure_flat
+    =text_field_tag :departure_flat
+  %p
+    =label_tag :departure_person_name
+    =text_field_tag :departure_person_name
+  %p
+    =label_tag :departure_person_phone
+    =text_field_tag :departure_person_phone
+  %h3
+    Destination Info:
+  %p
+    =label_tag :destination_index
+    =text_field_tag :destination_index
+  %p
+    =label_tag :destination_street_name
+    =text_field_tag :destination_street_name
+  %p
+    =label_tag :destination_house_number
+    =text_field_tag :destination_house_number
+  %p
+    =label_tag :destination_corpus
+    =text_field_tag :destination_corpus
+  %p
+    =label_tag :destination_flat
+    =text_field_tag :destination_flat
+  %p
+    =label_tag :destination_person_name
+    =text_field_tag :destination_person_name
+  %p
+    =label_tag :destination_person_phone
+    =text_field_tag :destination_person_phone
+  %h3
+    Common info:
+  %p
+    =label_tag :note
+    =text_area_tag :note
+  %p
+    =label_tag :capture_time
+    =text_field_tag :capture_time
+  %p
+    =label_tag :contact_email
+    =text_field_tag :contact_email
+  =submit_tag 'Submit'

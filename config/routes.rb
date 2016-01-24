@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'cabinet', to: 'users#cabinet'
   get 'orders/search_partners', to: 'orders#search_partners'
   get 'orders/new', to: 'orders#new'
+  post 'orders/create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
