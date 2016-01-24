@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:tracking, :history]
   def new
     @parcel_params =
     {
@@ -13,6 +13,14 @@ class OrdersController < ApplicationController
       partner_name: params[:partner_name],
       cost: params[:cost],
     }
+  end
+
+  def tracking
+    @orders = current_user.orders.where('status < ?', 4)
+  end
+
+  def history
+    @orders = current_user.orders.where('status > ?', 3)
   end
 
   def create
@@ -50,12 +58,14 @@ class OrdersController < ApplicationController
          destination_point: @des_point,
          departure_point: @dep_point,
          partner: Partner.find_or_create_by(name: params[:partner_name]),
+         #TODO: что делать, если нет юзера?
          user: current_user,
          parcel: @parcel,
          email: params[:contact_email],
          note: params[:note],
          capture_time: params[:capture_time]
       )
+      redirect_to '/'
   end
 
   def search_partners
