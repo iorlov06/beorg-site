@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
          :confirmable
   before_save :check_role
 
+  before_save :skip_email
+  def skip_email
+    self.skip_confirmation!
+  end
+
   def check_role
     if !self.role
       self.role = 0
