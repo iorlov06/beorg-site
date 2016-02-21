@@ -1,8 +1,50 @@
 -# Главная страница
-= render 'orders/fast'
-= render 'info/about_us'
-= render 'news/list'
-= render 'info/partners'
-= render 'reviews/list'
--if current_user
-  = render 'reviews/form'
+
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    :javascript
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          sectionsColor: ['#F7Fc88', '#94Fc88', '#88E1FC', 'whitesmoke', 'black'],
+          anchors: ['home', 'about', 'news', 'reviews'],
+          menu: '#menu',
+          scrollingSpeed: 800
+        });
+
+      });
+  %body
+    %ul#menu
+      %li{"data-menuanchor" => "home"}
+        %a{:href => "#home"} Home
+      %li{"data-menuanchor" => "about"}
+        %a{:href => "#about"} About us
+      %li{"data-menuanchor" => "news"}
+        %a{:href => "#news"} News
+      %li{"data-menuanchor" => "reviews"}
+        %a{:href => "#reviews"} Reviews
+    #fullpage
+      #home_section.section.active
+        #description.content
+          %h1 Heading
+          %p
+            Text
+          %p
+            text
+        #form.content
+          = render 'orders/fast'
+          #partbers
+            = render 'info/partners'
+      #about_section.section
+        #about_us.content
+          = render 'info/about_us'
+
+      #news_section.section
+        #all_news.content
+          %h2 Recent news
+          = render 'news/list'
+      #reviews_section.section
+        #rev
+          = render 'reviews/list'
+          #form
+            -if current_user
+              = render 'reviews/form'
