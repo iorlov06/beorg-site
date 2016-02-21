@@ -1,6 +1,12 @@
 -# Список свежих новостей
-%h2
-  Recent news
--@news.each do |article|
-  %p
-    =link_to "/news/#{article.id}", article.title
+%table
+  -@news.each do |article|
+    %tr
+      %td
+        %h2
+          = article.title
+        %h3
+          = article.created_at
+        %p
+          =link_to "More", "/news/#{article.id}"
+

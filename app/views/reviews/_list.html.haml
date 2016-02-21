@@ -1,10 +1,17 @@
 -# Список отзывов о сервисе
 %h2
   Reviews
--@reviews.each do |review|
-  %h3
-    =review.user.username
-  %p
-    =review.mark
-  %p
-    =review.descripton
+%table
+  -@reviews.each do |review|
+    %tr
+      %td
+        #user_data
+          =review.user.username
+        #user_mark
+          =review.mark
+      %td
+        #user_content
+          %p
+            =review.descripton
+
+
