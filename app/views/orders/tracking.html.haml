@@ -1,24 +1,26 @@
-%h2
-  Orders tracking
-%table
-  %thead
-    %tr
-      %th
-        Id
-      %th
-        Departure
-      %th
-        Destination
-      %th
-        Status
-  %tbody
-    -@orders.each do |order|
-      %tr
-        %td
-          =order.id
-        %td
-          =order.parcel.departure.name
-        %td
-          = order.parcel.destination.name
-        %td
-          =wordify_status order.status
+%div.content
+  #rev
+    %h2
+      Orders tracking
+    %table
+      %thead
+        %tr
+          %th
+            Id
+          %th
+            Departure
+          %th
+            Destination
+          %th
+            Status
+      %tbody
+        -@orders.each do |order|
+          %tr
+            %td
+              =order.id
+            %td
+              =order.parcel.departure.name
+            %td
+              = order.parcel.destination.name
+            %td
+              =wordify_status order.status
