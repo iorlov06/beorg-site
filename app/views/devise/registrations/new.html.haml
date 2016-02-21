@@ -2,6 +2,12 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
   .field
+    = f.radio_button :account_type, 'physical', checked: true
+    = f.label :account_type_physical, 'Physical'
+    %br/
+    = f.radio_button :account_type, 'legal'
+    = f.label :account_type_legal, 'Legal'
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true
@@ -13,6 +19,30 @@
     = f.label :phone
     %br/
     = f.text_field :phone
+  .field
+    = f.label :firstname
+    %br/
+    = f.text_field :firstname
+  .field
+    = f.label :partonym
+    %br/
+    = f.text_field :partonym
+  .field
+    = f.label :lastname
+    %br/
+    = f.text_field :lastname            
+  .field
+    = f.label :vat
+    %br/
+    = f.text_field :vat
+  .field
+    = f.label :legal_name
+    %br/
+    = f.text_field :legal_name
+  .field
+    = f.label :form
+    %br/
+    = f.text_field :form
   .field
     = f.label :password
     - if @minimum_password_length

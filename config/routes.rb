@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'orders/new', to: 'orders#new'
   post 'orders/create'
   get 'orders/tracking'
+  get 'admin/index'
+  get 'admin/search'
+  get 'admin/manage_role'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
