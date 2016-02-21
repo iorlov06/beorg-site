@@ -1,0 +1,7 @@
+%h2
+  =@about.title
+%p
+  =@about.description
+-if current_user.role > 0
+  %p
+    =link_to 'Edit', '/manage_about'

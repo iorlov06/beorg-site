@@ -1,0 +1,15 @@
+-if current_user.role > 0
+  %h2
+    Edit article
+  %p
+    =form_tag "/news/#{@article.id}/update", method: :post do
+      %p
+        =label_tag :title
+        =text_field_tag :title
+      %p
+        =label_tag :description
+        =text_area_tag :description
+      %p
+        =label_tag :picture_url
+        =text_field_tag :picture_url
+      =submit_tag 'Save'

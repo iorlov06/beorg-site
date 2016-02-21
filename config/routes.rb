@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  get 'news/:id', to: 'news#get'
+  get 'news/new', to: 'news#new'
+  post 'news/create', to: 'news#create'
+  get 'news/:id/edit', to: 'news#edit'
+  post 'news/:id/update', to: 'news#update'
+  delete 'news/:id', to: 'news#delete'
+  get 'news/archive', to: 'news#index'
+  get 'news/:id', to: 'news#show'
   post 'reviews/add', to: 'reviews#add'
   get 'users/:user_id/delete_review', to: 'reviews#delete'
   get 'users/edit_info', to: 'users#edit'
@@ -14,6 +20,9 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'admin/search'
   get 'admin/manage_role'
+  get 'about', to: 'info#about'
+  get 'manage_about', to: 'info#manage_about'
+  post 'save_about', to: 'info#save_about'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
