@@ -1,0 +1,400 @@
+@CHARSET "ISO-8859-1";
+/* Reset CSS
+ * --------------------------------------- */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td {
+    padding: 0;
+    margin: 0;
+}
+a{
+	text-decoration:none;
+}
+table {
+    border-spacing: 0;
+}
+fieldset,img {
+    border: 0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-weight: normal;
+    font-style: normal;
+}
+strong{
+	font-weight: bold;
+}
+ol,ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+caption,th {
+    text-align: left;
+
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    font-size: 100%;
+    margin:0;
+    padding:0;
+    color:#444;
+}
+q:before,q:after {
+    content:'';
+}
+abbr,acronym { border: 0;
+}
+
+
+/* Custom CSS
+ * --------------------------------------- */
+body{
+	font-family: arial,helvetica;
+	color: #333;
+	color: rgba(0,0,0,0.5);
+}
+.wrap{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	position: relative;
+}
+img{
+    width: 150px;
+    height: 60px;
+}
+h1{
+	font-size: 6em;
+}
+h2{
+    font-size: 3em;
+}
+h3{
+    font-size: 15px;
+}
+p{
+	font-size: 2em;
+}
+
+.section{
+	text-align:center;
+}
+#menu li {
+	
+	margin: 20px;
+	color: #000;
+	background:#fff;
+	background: rgba(255,255,255, 0.5);
+	-webkit-border-radius: 10px;
+            border-radius: 10px;
+}
+#menu li.active{
+	background:#666;
+	background: rgba(0,0,0, 0.5);
+	color: #fff;
+}
+#menu li a{
+	text-decoration:none;
+	color: #000;
+}
+#menu li.active a:hover{
+	color: #000;
+}
+#menu li:hover{
+	background: rgba(255,255,255, 0.8);
+}
+#menu li a,
+#menu li.active a{
+	padding: 9px 18px;
+	display:block;
+}
+#menu li.active a{
+	color: #fff;
+}
+#menu{
+	position:fixed;
+    font-size:12px;
+	top:30%;
+	left:0%;
+	height: 40px;
+	z-index: 70;
+	width: 15%;
+	padding: 0;
+	margin:0;
+}
+#header{
+	position:fixed;
+	top:0;
+	left:0;
+	height: 75px;
+	z-index: 70;
+	width: 100%;
+	padding: 0;
+	margin:0;
+	background-color: white;
+    -webkit-box-shadow: 0px 10px 10px -3px #777777;
+    -moz-box-shadow: 0px 10px 10px -3px #777777;
+    box-shadow: 0px 10px 10px -3px #777777;
+}
+#footer{
+    position:absolute;
+	bottom: 0;
+	left: 0;
+	height: 80px;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: white;
+    text-align: center;
+}
+
+#footer div{
+    display: inline-block;
+    text-align: center;
+}
+
+#footer h2{
+    font-size: 20px;
+}
+
+#description{
+    display:inline-block;
+    width: 50%;
+    text-align: center;
+}
+#description p{
+    text-align: left;
+    text-indent: 200px;
+}
+
+#form, #form-horizontal{
+    display: inline-block;
+    background-color: white;
+    max-height: 300px;
+    width: auto;
+    text-align: right;
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    border:none;
+    border-radius: 10px 10px;
+    -moz-box-shadow: 3px 3px 3px 3px #777777;
+    -webkit-box-shadow: 3px 3px 3px 3px #777777;
+    box-shadow:  3px 3px 3px 3px #777777;
+}
+#form-horizontal{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    text-align: center;
+    border: 0px;
+    margin-right: 5%;
+    margin-top: 0px;
+    -webkit-box-shadow: 0px 10px 10px -3px #777777;
+    -moz-box-shadow: 0px 10px 10px -3px #777777;
+    box-shadow: 0px 10px 10px -3px #777777;
+}
+#form input{
+    width: 250px;
+}
+#form-horizontal input{
+    width: 150px;
+}
+
+#form-horizontal a{
+    display: inline-block;
+    horiz-align: right;
+    margin-left: 10%;
+    width: 40%;
+    background-color: lightgray;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#form-horizontal input[type="submit"], a{
+    margin-top: 10px;
+    margin-left: 3%;
+    text-align: center;
+    width: 40%;
+    height: 20px;
+    border: 3px;
+    border-radius: 20px 10px;
+    font-size: 16px;
+}
+
+
+#form label{
+    font-size: 18px;
+}
+
+#form h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+#form input[type="submit"]{
+    text-align: center;
+    font-size:16px;
+    width: 60%;
+    height: 40px;
+    border: 3px;
+    border-radius: 20px 10px;
+}
+
+.field {
+   display: inline-block;
+}
+
+.input{
+    background-color: lightgray;
+}
+#news{
+    vertical-align: text-top;
+}
+
+.content{
+    height: 60%;
+    margin-top: 15%;
+}
+#all_news table{
+    position: absolute;
+    border-spacing: 10px;
+    left: 30%;
+    width: 40%;
+}
+
+#all_news td{
+    background-color: white;
+    border-radius: 20px 20px;
+    padding: 10px;
+    border: 3px #000000;
+    color: black;
+}
+
+#all_news h2,h3{
+    display: block;
+}
+#rev h2,h3{
+    display: block;
+}
+
+#all_news p{
+    display: block;
+    text-align: right;
+    font-size: 15px;
+}
+#all_news h2{
+    text-align: center;
+    font-size:30px;
+}
+#rev h2{
+    text-align: center;
+    font-size:30px;
+}
+
+#all_news h3{
+    text-align: right;
+    vertical-align: top;
+}
+#rev h3{
+    text-align: right;
+    vertical-align: top;
+}
+#partners{
+    display: inline-block;
+
+}
+
+#user_data{
+    text-align: center;
+
+}
+
+#rev table{
+    display: block;
+    border-spacing: 15px;
+    table-layout: auto;
+
+    position: relative;
+    left: 30%;
+    width:auto;
+    height: auto;
+}
+
+#rev td{
+    max-width: 400px;
+    overflow: auto;
+    vertical-align: middle;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px 20px;
+    padding: 10px;
+    border: 3px #000000;
+    color: black;
+}
+
+#user_data{
+    font-size: 16px;
+    text-decoration: solid;
+}
+#user_mark{
+    font-size:24px;
+    text-decoration: wavy;
+}
+
+#user_content p{
+    text-align: left;
+    font-size: 15px;
+}
+
+#navigation{
+    display: inline-block;
+    position: relative;
+    top:0;
+    text-align: center;
+    margin-left: 50px;
+    width: 200px;
+    height: auto;
+    background-color: lightgray;
+    border: 3px;
+    border-radius: 5px 5px;
+}
+
+.page{
+    position: absolute;
+    top:25%;
+}
+
+#profile{
+    position: absolute;
+    top: 0;
+    left:70%;
+    display: inline-block;
+    text-align: left;
+    horiz-align: right;
+}
+#profile p{
+    display: inline;
+    width: auto;
+}
+
+#profile #navigation{
+    margin-left: 0px;
+    width: auto;
+    margin-bottom: 10px;
+}
+#profile p{
+    font-size: 16px;
+}
+
+textarea{
+    height: 100px;
+    width: 100%;
+}
+
+
+
+
+
