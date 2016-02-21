@@ -1,0 +1,22 @@
+%h2 Found users
+%table
+  %thead
+    %tr
+      %th
+        Username
+      %th
+        Name
+      %th
+        Role
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          =user.username
+        %td
+          #{user.firstname} #{user.partonym} #{user.lastname}
+        %td
+          =wordify_role user.role
+        %td
+          =links(user).html_safe
