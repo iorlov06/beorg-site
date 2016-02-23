@@ -42,4 +42,8 @@ module ApiWrapper
                                      arr_surname, arr_name, arr_paronym, arr_phone,
                                      note, capture_time, contact_email)
   end
+
+  def self.get_parcel_status(partner, order_id)
+    @@partners[partner].get_parcel_status(order_id)
+  end
 end
