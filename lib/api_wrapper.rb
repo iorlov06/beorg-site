@@ -12,7 +12,7 @@ module ApiWrapper
   def self.get_approx_prices(departure_city_code, arrival_city_code, weight, parcel_type)
     result = {}
     @@partners.values.each do |partner|
-      result[partner.name] = partner.get_approx_price(departure_city, arrival_city,
+      result[partner.name] = partner.get_approx_price(departure_city_code, arrival_city_code,
                                                       weight, parcel_type)
     end
     result
