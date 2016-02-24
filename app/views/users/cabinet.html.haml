@@ -7,6 +7,9 @@
       		startLeftHeight = document.getElementsByClassName('left_menu')[0].offsetHeight;
       		divHeightsRevesion();  		
       	}
+      function goToNewOrder(){
+        document.location.href = "orders/new";
+      }
       function divHeightsRevesion(){
       	var leftMenuDiv = document.getElementsByClassName('left_menu')[0];
       		var centerMenuDiv = document.getElementsByClassName('center_menu')[0];
@@ -46,7 +49,7 @@
       .center_menu
         .div_page_history
           %p.descr История заказов
-          %p.new_order Новый заказ
+          %p.new_order{:onclick => "goToNewOrder"} Новый заказ
           .clearer
           .history_info
         .div_page_personal_info
