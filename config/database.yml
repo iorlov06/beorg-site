@@ -27,4 +27,9 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  encoding: utf8
+  database: beorgdb
+  host: localhost
+  port: 5432
+  username: beorg_admin
+  password: beorg_password
