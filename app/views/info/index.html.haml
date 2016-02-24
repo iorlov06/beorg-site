@@ -45,6 +45,6 @@
       #reviews_section.section
         #rev
           = render 'reviews/list'
-          #form
-            -if current_user
+          -if current_user
+            #form
               = render 'reviews/form'

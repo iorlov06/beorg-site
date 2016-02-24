@@ -234,6 +234,11 @@ p{
     text-align: center;
 }
 
+#form-horizontal h2{
+    font-size: 30px;
+    text-align: center;;
+}
+
 #form input[type="submit"]{
     text-align: center;
     font-size:16px;

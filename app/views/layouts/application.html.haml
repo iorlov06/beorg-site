@@ -8,6 +8,9 @@
     = csrf_meta_tags
   %body
     = render 'layouts/common/header'
-    #main
-      = yield
+    -if controller_name!='info'
+      #main
+        = yield
+    -else
+      =yield
     = render 'layouts/common/footer'
