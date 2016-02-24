@@ -169,7 +169,6 @@ p{
 #form, #form-horizontal{
     display: inline-block;
     background-color: white;
-    max-height: 300px;
     width: auto;
     text-align: right;
     margin: 10px;
@@ -237,6 +236,10 @@ p{
 #form-horizontal h2{
     font-size: 30px;
     text-align: center;;
+}
+
+#form textarea{
+    text-align: left;
 }
 
 #form input[type="submit"]{
@@ -399,6 +402,17 @@ textarea{
     width: 100%;
 }
 
+#newsheadline h2{
+    font-size: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#newsdata p{
+    text-align: left;
+    font-size: 20px;
+    padding: 10px 10px 10px 20px;
+}
 
 
 

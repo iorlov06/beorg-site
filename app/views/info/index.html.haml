@@ -1,17 +1,6 @@
 -# Главная страница
 
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
-  %head
-    :javascript
-      $(document).ready(function() {
-        $('#fullpage').fullpage({
-          sectionsColor: ['#F7Fc88', '#94Fc88', '#88E1FC', 'whitesmoke', 'black'],
-          anchors: ['home', 'about', 'news', 'reviews'],
-          menu: '#menu',
-          scrollingSpeed: 800
-        });
-
-      });
   %body
     %ul#menu
       %li{"data-menuanchor" => "home"}
@@ -30,7 +19,7 @@
             Text
           %p
             text
-        #form.content
+        #form
           = render 'orders/fast'
           #partbers
             = render 'info/partners'
@@ -41,7 +30,7 @@
       #news_section.section
         #all_news.content
           %h2 Recent news
-          = render 'news/list'
+          = render 'news/index'
       #reviews_section.section
         #rev
           = render 'reviews/list'

@@ -1,0 +1,5 @@
+-if current_user
+  -if current_user.role > 0
+    %p{:style => "display:inline;text-align: center;"}
+      =link_to('Create new article', "/news/new", :onclick=>'return Popup(this);')
+=render 'news/list'

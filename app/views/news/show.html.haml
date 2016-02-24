@@ -1,10 +1,15 @@
 -# Рендер одной новости
-%h2
-  =@article.title
-%p
-  =@article.description
--if current_user.role > 0
-  %p
-    =link_to 'Edit', "/news/#{@article.id}/edit"
-  %p
-    =link_to 'Delete', "/news/#{@article.id}", method: :delete, confirm: 'Are you sure want to delete this article?'
+#newsheadline
+  %h2
+    =@article.title
+%hr
+#newsdata
+  %p.news
+    =@article.description
+  -if current_user.role > 0
+    %hr
+    %div{:style=>"text-align:center;"}
+      #navigation
+        =link_to 'Edit', "/news/#{@article.id}/edit"
+      #navigation
+        =link_to 'Delete', "/news/#{@article.id}", method: :delete, confirm: 'Are you sure want to delete this article?'

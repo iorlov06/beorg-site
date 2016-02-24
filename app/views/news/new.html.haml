@@ -1,15 +1,17 @@
 -if current_user.role > 0
-  %h2
-    Create article
-  %p
-    =form_tag '/news/create', method: :post do
-      %p
-        =label_tag :title
-        =text_field_tag :title
-      %p
-        =label_tag :description
-        =text_area_tag :description
-      %p
-        =label_tag :picture_url
-        =text_field_tag :picture_url
-      =submit_tag 'Save'
+  #newshedline
+    %h2
+      Create article
+  #newsdata
+    #form{:style=>"width:80%; "}
+      =form_tag '/news/create', method: :post do
+        %p
+          =label_tag :title
+          =text_field_tag :title,nil, :placeholder=>'title'
+        %p
+          =label_tag :description
+          =text_area_tag :description, nil,:placeholder=>'text of the article'
+        %p
+          =label_tag :picture_url
+          =text_field_tag :picture_url,nil, :placeholder=>'picture url(optional)'
+        =submit_tag 'Save'

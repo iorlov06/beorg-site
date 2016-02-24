@@ -1,15 +1,17 @@
 -if current_user.role > 0
-  %h2
-    Edit article
-  %p
-    =form_tag "/news/#{@article.id}/update", method: :post do
-      %p
-        =label_tag :title
-        =text_field_tag :title
-      %p
-        =label_tag :description
-        =text_area_tag :description
-      %p
-        =label_tag :picture_url
-        =text_field_tag :picture_url
-      =submit_tag 'Save'
+  #newsheadline
+    %h2
+      Edit article
+  #newsdata
+    #form{:style=>"width:80%; "}
+      =form_tag "/news/#{@article.id}/update", method: :post do
+        %p
+          =label_tag :title
+          =text_field_tag :title, @article.title
+        %p
+          =label_tag :description
+          =text_area_tag :description, @article.description
+        %p
+          =label_tag :picture_url
+          =text_field_tag :picture_url, @article.picture_url
+        =submit_tag 'Save'
