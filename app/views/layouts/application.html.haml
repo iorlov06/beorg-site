@@ -7,12 +7,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    -if controller_name!='news'
+    -if controller_name=='news' and action_name!='index'
+    -else
       = render 'layouts/common/header'
     -if controller_name!='info'
       #main
         = yield
     -else
       =yield
-    -if controller_name!='news'
+    -if controller_name=='news'
+    -else
       = render 'layouts/common/footer'
