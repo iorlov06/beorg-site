@@ -6,9 +6,11 @@
 #newsdata
   %p.news
     =@article.description
+  %p
+    =@article.picture_url
   -if current_user.role > 0
     %hr
-    %div{:style=>"text-align:center;"}
+    %div{:style=>"text-align:canter;"}
       #navigation
         =link_to 'Edit', "/news/#{@article.id}/edit"
       #navigation

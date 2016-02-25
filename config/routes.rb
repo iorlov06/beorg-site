@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'admin/manage_role'
   get 'about', to: 'info#about'
   get 'manage_about', to: 'info#manage_about'
+  get 'orders/history'
   post 'save_about', to: 'info#save_about'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

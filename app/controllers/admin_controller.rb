@@ -7,7 +7,7 @@ class AdminController < ApplicationController
   def manage_role
     @user = User.find(params[:id].to_i)
     @role = params[:role].to_i
-    if current_user.role > 0 && current_user.role > @user.role
+    if current_user.role > 0 && (current_user.role > @user.role || current_user.id == @user.id)
       @user.update(role: @role)
     end
     redirect_to :back

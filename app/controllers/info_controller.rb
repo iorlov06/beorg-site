@@ -5,6 +5,7 @@ class InfoController < ApplicationController
     #5 отзывов
     review_shuffle = Review.pluck(:id).take(5)
     @reviews = Review.where(id: review_shuffle)
+    @about = NewsArticle.find_or_create_by(info: true, title: 'About us')
   end
 
   def about

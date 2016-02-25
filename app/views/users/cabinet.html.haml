@@ -1,52 +1,77 @@
--# Личный кабинет
-%h2
-  Your personal information
-%p
-  Username: #{current_user.username || ''}
-%p
-  Phone: #{current_user.phone || ''}
-%p
-  Email: #{current_user.email || ''}
-%p
-  Firstname: #{current_user.firstname || ''}
-%p
-  Partonym: #{current_user.partonym || ''}
-%p
-  Lastname: #{current_user.lastname || ''}
-%h2
-  Your orders:
-%table
-  %thead
-    %tr
-      %th
-        Order code
-      %th
-        Departure town
-      %th
-        Destination town
-      %th
-        -# TODO: выяснить, что есть статус
-        Status
-      %th
-        -# TODO: выяснить, что точно есть время прибытия
-        Arrival time
-  %tbody
-    -@orders.each do |order|
-      %tr
-        %td
-          =order.id
-        %td
-          =order.departure_point
-        %td
-          =order.destination_point
-        %td
-          -# =order.status
-        %td
-          =order.capture_time
-%strong
-  %p
-    =link_to 'Edit', 'users/edit_info'
-  %p
-    =link_to 'Edit credentials', 'users/edit'
-  %p
-    =link_to 'logout', destroy_user_session_path, method: :delete
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    :javascript
+      var startLeftHeight = 0;
+      window.onload =
+      	function(){
+      		startLeftHeight = document.getElementsByClassName('left_menu')[0].offsetHeight;
+      		divHeightsRevesion();  		
+      	}
+      function goToNewOrder(){
+        document.location.href = "orders/new";
+      }
+      function divHeightsRevesion(){
+      	var leftMenuDiv = document.getElementsByClassName('left_menu')[0];
+      		var centerMenuDiv = document.getElementsByClassName('center_menu')[0];
+      		if (leftMenuDiv.offsetHeight > centerMenuDiv.offsetHeight){
+      			centerMenuDiv.style.height = leftMenuDiv.offsetHeight;
+      		}
+      		else if (centerMenuDiv.offsetHeight > leftMenuDiv.offsetHeight){
+      			leftMenuDiv.style.height = centerMenuDiv.offsetHeight;
+      		}
+      }	
+      function switchCenter(){
+      	if (document.getElementsByClassName('div_page_history')[0].style.display=='block'){
+      		document.getElementsByClassName('div_page_history')[0].style.display='none';
+      		document.getElementsByClassName('div_page_personal_info')[0].style.display='block';	
+      		document.getElementsByClassName('changeCenterDiv')[0].getElementsByTagName('p')[0].innerHTML = 'Перейти к истории заказов';
+      	}
+      	else{
+      		document.getElementsByClassName('div_page_history')[0].style.display='block';
+      		document.getElementsByClassName('div_page_personal_info')[0].style.display='none';
+      		document.getElementsByClassName('changeCenterDiv')[0].getElementsByTagName('p')[0].innerHTML = 'Перейти к личной информации';
+      	}
+      	divHeightsRevesion();
+      }
+  %body
+    .main_div
+      .left_menu
+        %h4 Your personal information
+        %ul{:type => "square"}
+          %li Username: #{current_user.username || ''}
+          %li Phone: #{current_user.phone || ''}
+          %li Email: #{current_user.email || ''}
+          %li Firstname: #{current_user.firstname || ''}
+          %li Partonym: #{current_user.partonym || ''}
+          %li Lastname: #{current_user.lastname || ''}
+        .changeCenterDiv{:onclick => "switchCenter()"}
+          %p Перейти к личной информации
+      .center_menu
+        .div_page_history
+          %p.descr История заказов
+          %p.new_order{:onclick => "goToNewOrder"} Новый заказ
+          .clearer
+          .history_info
+        .div_page_personal_info
+          %p.descr Личная информация
+          .clearer
+          .personal_info
+            %input.personalInput{:type => "text", :value => "#{current_user.username || ''}"}/
+            %br
+            %input.personalInput{:type => "text", :value => "#{current_user.phone || ''}"}/
+            %br
+            %input.personalInput{:type => "text", :value => "#{current_user.email || ''}"}/
+            %br
+            %input.personalInput{:type => "text", :value => "#{current_user.firstname || ''}"}/
+            %br
+            %input.personalInput{:type => "text", :value => "#{current_user.partonym || ''}"}/
+            %br
+            %input.personalInput{:type => "text", :value => "#{current_user.lastname || ''}"}/
+            %br
+          %p.inputPasswordForChangings Введите пароль:
+          %input.input_text{:type => "password"}/
+          .input_button
+            .helpButtonDiv
+              %p Сохранить
+          .clearer
+      .clearer
