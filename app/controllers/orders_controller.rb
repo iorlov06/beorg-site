@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  require 'api_wrapper'
   before_action :authenticate_user!, only: [:tracking, :history]
   def new
     @parcel_params =
@@ -58,7 +59,6 @@ class OrdersController < ApplicationController
          destination_point: @des_point,
          departure_point: @dep_point,
          partner: Partner.find_or_create_by(name: params[:partner_name]),
-         #TODO: что делать, если нет юзера?
          user: current_user,
          parcel: @parcel,
          email: params[:contact_email],
@@ -81,48 +81,16 @@ class OrdersController < ApplicationController
     }
     #GET PARAMS
     search_params_merged = @search_params.map{|k,v| "#{k}=#{v}"}.join '&'
-    non_empty_fields = @search_params.map{|k,v| v ? 1 : 0}.reduce :+
+    non_empty_fields = @search_params.map{|k,v| (v && !v.empty?) ? 1 : 0}.reduce :+
     @complete_search = non_empty_fields == 7
     #Search stub
     if @complete_search
-      @search_results = [
-        {
-          partner_name: 'Partner1',
-          cost: 100,
-          link_params: "partner_name=Partner1&cost=100&" + search_params_merged
-        },
-        {
-          partner_name: 'Partner2',
-          cost: 200,
-          link_params: "partner_name=Partner2&cost=200&" + search_params_merged
-        },
-        {
-          partner_name: 'Partner3',
-          cost: 300,
-          link_params: "partner_name=Partner3s&cost=3s00&" + search_params_merged
-        }
-      ]
+      #TODO: Localty, parcel_type, fragile, delivery_type
+      @search_results = ApiWrapper.get_prices(0, 0, @search_params[:weight].to_i, 0,
+                          @search_params[:height].to_i, @search_params[:length].to_i, @search_params[:width].to_i, @search_params[:insurance_price].to_i, 0, 0)
     else
-      @search_results = [
-        {
-          partner_name: 'Partner1',
-          cost1: 100,
-          cost2: 120,
-          cost3: 150
-        },
-        {
-          partner_name: 'Partner2',
-          cost1: 200,
-          cost2: 220,
-          cost3: 250
-        },
-        {
-          partner_name: 'Partner3',
-          cost1: 300,
-          cost2: 320,
-          cost3: 350
-        }
-      ]
+      @search_results = ApiWrapper.get_approx_prices(0, 0, @search_params[:weight].to_i || 0, 0)
     end
   end
+
 end

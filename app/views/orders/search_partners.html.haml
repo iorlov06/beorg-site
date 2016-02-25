@@ -38,14 +38,17 @@
           %th
             Link
       %tbody
-        -@search_results.each do |result|
+        -@search_results.each do |partner, result|
           %tr
             %td
-              =result[:partner_name]
+              =partner
             %td
-              =result[:cost]
+              =result
             %td
-              = link_to 'link', "/orders/new?#{result[:link_params]}"
+              -if current_user
+                = link_to 'link', "/orders/new?cost=#{result}&partner_name=#{partner}&#{@search_params.map{|k, v| "#{k}=#{v}"}.join("&")}"
+              -else
+                =link_to 'login', "/users/sign_in"
   -else
     %table
       %thead
@@ -53,19 +56,11 @@
           %th
             Partner name
           %th
-            Low-size cost
-          %th
-            Mid-size cost
-          %th
-            High-size cost
+            Cost
       %tbody
-        -@search_results.each do |result|
+        -@search_results.each do |partner, result|
           %tr
             %td
-              =result[:partner_name]
+              =partner
             %td
-              =result[:cost1]
-            %td
-              =result[:cost2]
-            %td
-              =result[:cost3]
+              =result

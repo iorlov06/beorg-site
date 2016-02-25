@@ -3,6 +3,8 @@
   =@article.title
 %p
   =@article.description
+%p
+  =@article.picture_url  
 -if current_user.role > 0
   %p
     =link_to 'Edit', "/news/#{@article.id}/edit"
