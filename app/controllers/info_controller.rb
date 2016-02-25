@@ -21,7 +21,7 @@ class InfoController < ApplicationController
     if current_user && current_user.role > 0
       @about.update(description: params[:description])
     end
-    redirect_to '/about'
+    render :text=>'<script type="text/javascript"> window.close();</script>'
   end
 
 

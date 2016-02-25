@@ -36,6 +36,6 @@ class NewsController < ApplicationController
   def delete
     @article = NewsArticle.find params[:id]
     @article.destroy
-    redirect_to "/news/archive"
+    render :text=>'<script type="text/javascript"> window.close();</script>'
   end
 end
