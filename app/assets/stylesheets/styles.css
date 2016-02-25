@@ -326,13 +326,12 @@ p{
     border-spacing: 15px;
     table-layout: auto;
     position: relative;
-    left: 30%;
-    width:auto;
+    left: 25%;
+    max-width: 60%;
     height: auto;
 }
 
 #rev td{
-    max-width: 400px;
     overflow: auto;
     vertical-align: middle;
     text-align: center;
@@ -423,6 +422,10 @@ textarea{
 
 #about_information h2{
     text-align: center;
+}
+
+#rev #form textarea{
+    height: 50px;
 }
 
 
