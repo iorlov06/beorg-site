@@ -7,12 +7,3 @@ function Popup(link){
     return false;
 }
 
-$(document).ready(function() {
-    $('#fullpage').fullpage({
-        sectionsColor: ['#F7Fc88', '#94Fc88', '#88E1FC', 'whitesmoke', 'black'],
-        anchors: ['home', 'about', 'news', 'reviews'],
-        menu: '#menu',
-        scrollingSpeed: 800
-    });
-
-});

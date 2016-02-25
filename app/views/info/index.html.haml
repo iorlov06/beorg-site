@@ -1,6 +1,17 @@
 -# Главная страница
 
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    :javascript
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          sectionsColor: ['#F7Fc88', '#94Fc88', '#88E1FC', 'whitesmoke', 'black'],
+          anchors: ['home', 'about', 'news', 'reviews'],
+          menu: '#menu',
+          scrollingSpeed: 800
+          });
+        });
+
   %body
     %ul#menu
       %li{"data-menuanchor" => "home"}
