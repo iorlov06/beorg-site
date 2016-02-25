@@ -1,7 +1,9 @@
-%h2
-  =@about.title
-%p
-  =@about.description
--if current_user.role > 0
+#about_information
+  %h2
+    =@about.title
   %p
-    =link_to 'Edit', '/manage_about'
+    =@about.description
+  -if current_user and current_user.role > 0
+    %p
+      #navigation
+        =link_to('Edit', '/manage_about',:onclick=>'return Popup(this)')

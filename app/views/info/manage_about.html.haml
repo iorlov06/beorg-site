@@ -1,9 +1,12 @@
 -if current_user.role > 0
-  =form_tag '/save_about', method: :post do
+  #form{:style=>"width:80%; text-align:left;"}
     %h2
-      =text_field_tag :title, @about.title, disabled: true
-    %p
-      =label_tag :description
-    %p
-      =text_area_tag :description, (@about.description || '')
-    =submit_tag 'Save'
+      Information edition
+    =form_tag '/save_about', method: :post do
+      %h2
+        =text_field_tag :title, @about.title, disabled: true
+      %p
+        =label_tag :description
+      %p
+        =text_area_tag :description, (@about.description || '')
+      =submit_tag 'Save'
