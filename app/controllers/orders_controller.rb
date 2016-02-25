@@ -65,6 +65,11 @@ class OrdersController < ApplicationController
          note: params[:note],
          capture_time: params[:capture_time]
       )
+      ApiWrapper.create_order(@order.partner, @dep_point.index_number, @dep_point.street_name, @dep_point.house_number, @dep_point.corpus, @dep_point.flat,
+                            @dep_point.person_name, '', '', @dep_point.person_phone,
+                            @des_point.index_number, @des_point.street_name, @des_point.house_number, @des_point.corpus, @des_point.flat,
+                            @des_point.person_name, '', '', @des_point.person_phone,
+                            @order.note, @order.capture_time, @order.email)
       redirect_to '/'
   end
 
