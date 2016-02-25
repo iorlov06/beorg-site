@@ -14,7 +14,7 @@ development:
   encoding: utf8
   database: beorgdb
   host: localhost
-  port: 5433
+  port: 5432
   username: beorg_admin
   password: beorg_password
 
